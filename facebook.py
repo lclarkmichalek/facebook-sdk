@@ -36,6 +36,7 @@ if user:
 import time
 import hashlib
 import hmac
+import sys
 import base64
 import logging
 import socket
