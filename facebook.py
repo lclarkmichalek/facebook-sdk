@@ -40,6 +40,7 @@ import urllib2
 import httplib
 import hashlib
 import hmac
+import sys
 import base64
 import logging
 import socket
