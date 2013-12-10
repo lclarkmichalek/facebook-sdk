@@ -40,6 +40,7 @@ import urllib2
 import httplib
 import hashlib
 import hmac
+import sys
 import base64
 import logging
 import socket
@@ -290,6 +291,8 @@ class GraphAPI(object):
                 args["access_token"] = self.access_token
         post_data = None if post_args is None else urllib.urlencode(post_args)
         try:
+            if sys.hexversion >= 0x03030000:
+                post_data = post_data.encode('utf8')
             file = urllib2.urlopen("https://graph.facebook.com/" + path + "?" +
                                    urllib.urlencode(args),
                                    post_data, timeout=self.timeout)
